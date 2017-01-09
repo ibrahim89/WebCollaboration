@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<br>
+<div id="myDiv" style="background-image:url('resources/images/job1.jpg');background-repeat: no-repeat; background-size: cover;
+    background-position: center center;">
+<div class="nav navbar-nav navbar-left">
+<!-- <a href="#/manage_users">Manage Users</a>  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; -->
+
+
+                           <li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Manage Jobs<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/manage_jobs">View applied Jobs</a></li>
+							
+							<li><a href="#/post_job">Post a new Job</a></li>
+							
+						</ul></li>  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+						
+						<a href="#/manage_users">Manage Users</a>  
+						
+
+</div>
+
+
+<div class="container" ng-controller="JobController as ctrl">
+
+
+ <div class="row">
+   <div class="table-response">
+   <table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>UserID</th>
+							<th>Job ID</th>
+							<th>Date Applied</th>
+							<th>Remarks</th>
+							<th>Status</th>							
+							
+							
+						</tr>
+					</thead>
+					<tbody>
+					
+							<tr ng-repeat="jobapplied in ctrl.jobsapplied" class="success" ng-hide="user.id==currentUser.id">
+								<td>{{jobapplied.id}}</td>
+								<td>{{jobapplied.userID}}</td>
+								<td>{{jobapplied.jobID}}</td>
+								<td>{{jobapplied.dateTime}}</td>
+								<td>{{jobapplied.remarks}}</td>
+								<td>{{jobapplied.status}}</td>
+															
+													
+				<td><button ng-hide="jobapplied.status=='A' || jobapplied.status=='R'" type="button" ng-click="ctrl.jobaccept(jobapplied)" class="btn btn-warning btn-sm">ACCEPT</button></td>
+				
+                <td><button ng-hide="jobapplied.status=='A' || jobapplied.status=='R'" type="button" ng-click="ctrl.jobreject(jobapplied)" class="btn btn-danger">REJECT</button></td>
+					</tr>
+</tbody>
+</table>
+   </div>
+ </div>
+</div>
+</div>
+</body>
+</html>

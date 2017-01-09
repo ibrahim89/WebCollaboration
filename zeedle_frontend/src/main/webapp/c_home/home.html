@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/w3.css">
+    <link rel="stylesheet" href="resources/css/middleStyle.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+<title>Home</title>
+</head>
+
+<style>
+body{
+/* background-image: url("resources/images/b3.jpg"); */
+background-color:purple;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%; height:400px;
+} 
+</style>
+<body>
+<div class="w3-container w3-orange">
+ <h3 style="color:blue; px:100;">
+ <div class="col-sm-12" style="text-align: justify;">
+<div ng-controller="UserController as ctr">
+<a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/myProfile" role="button">View Profile</a>
+<span class="glyphicon glyphicon-user" style="color:"> Welcome:  {{currentUser.name}}
+</div>
+</div>
+ 
+<div class="col-sm-12" style="color:white;"">
+
+
+</div>
+
+<div class="col-sm-6" style="text-align: right;">
+
+</div>
+</h3>
+
+</div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" href="#">
+    
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+       <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+         <li data-target="#myCarousel" data-slide-to="5"></li>
+         
+    </ol>
+
+   
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="resources/images/icon1.png" alt="Image">
+        <div class="carousel-caption">
+         <h3 style="color:red;">A COLLABORATION TOOL</h3>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="resources/images/collage1.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3 style="color:black"></h3>
+        
+        </div>
+      </div>
+       <div class="item">
+        <img src="resources/images/collage2.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3 style="color:black">Blogs</h3>
+          <p></p>
+        </div>
+      </div>
+       <div class="item">
+        <img src="resources/images/collage3.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+       <div class="item">
+        <img src="resources/images/team5.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+	
+	      
+    </div>
+
+    Left and right controls
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+ </div>
+ <!-- HERE CAROSEL IS ENDED.........................................................................  -->
+ 
+ <!-- MIDDLE CONTENTS -->
+ <div class="container">
+  <div class="iconcontainer">
+  
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="iconbox">
+          <div class="iconbox-icon">
+            <span class="glyphicon glyphicon-book"></span>
+            
+          </div>
+          <div class="featureinfo">
+            <h4 class="text-center">Blogs</h4>
+            
+            <h3 align="center">Publish your passions, your way</h3>
+            <p align="center">
+            
+            create a unique and beautiful blog. It's easy and free.
+            </p>
+            <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/create_blog" role="button">Create Blogs</a>
+             <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/list_blog" role="button">Blogs List</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="iconbox">
+          <div class="iconbox-icon">
+          <span class="glyphicon glyphicon-calendar"></span>
+          </div>
+          <div class="featureinfo">
+            <h4 class="text-center">Event</h4>
+             <h3 align="center">Create inspired events.</h3>
+            <p>
+             
+            </p>
+            <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/event" role="button">Create Events</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="iconbox">
+          <div class="iconbox-icon">
+            <span class="glyphicon glyphicon-comment"></span>
+          </div>
+          <div class="featureinfo">
+            <h4 class="text-center">Chat</h4>
+            <h3 align="center">Welcome to our free chat rooms!</h3>
+            <p>
+             
+            </p>
+            <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/chat" role="button">Go For Chat</a>
+            <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/chatforum" role="button">Chat Forum</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="iconbox">
+          <div class="iconbox-icon">
+            <span class="glyphicon glyphicon-user"></span>
+          </div>
+          <div class="featureinfo">
+            <h4 class="text-center">User</h4>
+            <h3 align="center">Would you like to register?</h3>
+            <p>
+             
+            </p>
+            <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/login" role="button">Create Profile</a>
+            <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/myProfile" role="button">View Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+        <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="iconbox">
+          <div class="iconbox-icon">
+             <span class="glyphicon glyphicon-education"></span>
+          </div>
+          <div class="featureinfo">
+            <h4 class="text-center">Jobs</h4>
+            <h3 align="center">Are you looking Job?</h3>
+            <h3 align="center">Apply for thousands of jobs across India, its FREE</h3>
+            <p>
+             
+            </p>
+            <a class="w3-btn w3-indigo  w3-small" href="#/post_job" role="button">Post a New Job</a>
+            <a class="w3-btn w3-indigo  w3-small" href="#/search_job" role="button">Search Jobs</a>
+            <a class="w3-btn w3-indigo  w3-small" href="#/view_job_details" role="button">Job Details</a>
+            <a class="w3-btn w3-indigo  w3-small" href="#/view_applied_jobs" role="button">View Applied Jobs</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="iconbox">
+          <div class="iconbox-icon">
+            <span class="glyphicon glyphicon-user"></span>
+          </div>
+          <div class="featureinfo">
+            <h4 class="text-center">FRIENDS</h4>
+            <h3 align="center">Welcome Friends</h3>
+            <h3 align="center">Search New Friends!</h3>
+            
+            <p>
+             
+            </p>
+            <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/search_friend" role="button">Search Friends</a>
+            <a class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" href="#/view_friend" role="button">View Friends</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MIDDLE CONTENTS ENDED -->
+
+
+<!--  <script>
+ $(document).ready(function() {	
+		$( ".widget h2" ).click(
+			function() {
+				$(this).parent().toggleClass('active');
+			}
+		);	  	
+	});
+
+
+ </script> -->
+</body>
+</html>

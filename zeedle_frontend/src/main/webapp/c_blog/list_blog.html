@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Insert title here</title>
+<style>
+
+ 
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+</head>
+<body>
+<div id="myDiv" >
+<div class="container" ng-controller="BlogController as ctrl">
+
+<!-- <div ng-repeat="blog in ctrl.blogs | filter: sear_test">-->
+Welcome to Blogs
+<br><br>
+<div ng-repeat="blog in ctrl.blogs">
+<a href="#" ng-click="ctrl.getSelectedBlog(blog.blogId)">Title : {{blog.title}} - Written By : {{blog.id}}</a>
+<br><br>
+</div>
+</div>
+</div>
+</body>
+</html>

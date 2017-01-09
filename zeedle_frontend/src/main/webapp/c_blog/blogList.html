@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<title>BlogList</title>
+<style>
+.msg-val {
+	color: red;
+}
+.msg-success {
+	color: blue;
+} 
+body{
+    background-color:#5DADEC ;
+    color: #0000;
+}
+th {
+    background-color:#09568d ;
+    color:#FFFFFF;	
+}
+</style>
+</head>
+<body>
+<div ng-controller="BlogController as blogCtrl" class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+            	<th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in blogCtrl.blogs">
+            	<td><span ng-bind="row.blogId"></span></td>
+	        	<td><span ng-bind="row.blogTitle"></span></td>
+	         	<td><span ng-bind="row.blogDesc"></span></td>                
+                <td><input type="submit" ng-click="blogCtrl.getSelectedBlog(row.blogId)" class="w3-btn  w3-deep-purple w3-border w3-border-blue w3-round-xlarge" value="View Blog"/></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

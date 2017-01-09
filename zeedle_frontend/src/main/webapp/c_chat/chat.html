@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-controller="ChatController" class="container">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Chat</title>
+
+<style>
+
+  body {
+    margin: 0 0 20px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+
+</style>
+
+</head>
+
+<body>
+<div  class="inner-content">
+	<form ng-submit="addMessage()" name="messageForm">
+	<div class="input-field col-sm-6 col-xs-8">
+		<label  class="control-label" for="name">Enter Message here:</label><input type="text" class="form-control"
+			placeholder="Compose a new message..." ng-model="message" />
+			</div>
+			<br>
+		<div class="info">
+			<span class="count" ng-bind="max - message.length"
+				ng-class="{danger:message.length>max}">140</span>
+				
+			<button class="w3-btn w3-yellow w3-border w3-border-red w3-round-xlarge" ng-disabled="message.length>max || message.length===0">send</button>
+		</div>
+		<br>
+		<p ng-repeat="message in messages | orderBy: 'time':true"
+			class="message">
+			<time>{{message.time | date: 'HH:mm'}}</time>
+			<span ng-class="{self.message.self}">{{message.message}}</span>
+
+		</p>
+	</form>
+	</div>
+
+
+
+</body>
+</html>

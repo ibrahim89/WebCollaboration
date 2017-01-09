@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Manage Friends</title>
+<style>
+ .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+
+</head>
+<body>
+<div id="myDiv">
+<div class="container" ng-controller="FriendController as ctrl">
+
+
+ <div class="row">
+   <div class="table-response">
+   <table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>FriendID</th>
+							<th>IsOnLine</th>
+							<th>Status</th>
+							<th>UserID</th>							
+						</tr>
+					</thead>
+					<tbody>
+					
+							<tr ng-repeat="friend in ctrl.friends" class="success" ng-hide="user.id==currentUser.id">
+								<td>{{friend.fId}}</td>
+								<td>{{friend.friendID}}</td>
+								<td>{{friend.isOnline}}</td>
+								<td>{{friend.status}}</td>
+								<td>{{friend.id}}</td>															
+													
+				<td><button ng-hide="friend.status=='A' || friend.status=='R'" type="button" ng-click="ctrl.friendaccept(friendapplied)" class="w3-btn w3-purple">ACCEPT</button></td>
+				
+                <td><button ng-hide="friend.status=='A' || friend.status=='R'" type="button" ng-click="ctrl.friendreject(friendapplied)" class="w3-btn w3-red">REJECT</button></td>
+					</tr>
+</tbody>
+</table>
+   </div>
+ </div>
+</div>
+</div>
+</body>
+</html>

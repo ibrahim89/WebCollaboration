@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="shortcut icon" href="resources/images/Capture.PNG">
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<style>
+.msg-val {
+	color: red;
+}
+.msg-success {
+	color: blue;
+} 
+body{
+    background-color:#5DADEC ;
+    color: #0000;
+}
+th {
+    background-color:#09568d ;
+    color:#FFFFFF;	
+}
+</style>
+<title>Collaboration Website</title>
+</head>
+<body>
+<div ng-controller="BlogController as blogCtrl" class="container">
+<h1>Blog Details</h1>
+<hr>
+  <br>
+      <h3>Title: {{selectedBlog.blogTitle}}</h3>
+      <h3>Description: {{selectedBlog.blogDesc}}</h3>
+</div>
+</body>
+</html>

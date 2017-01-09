@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+
+ 
+<title>Insert title here</title>
+<style>
+ .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+</head>
+<body>
+<div id="myDiv" >
+<div class="container">
+<div ng-show="currentUser==''">
+<!-- <div class="alert alert-danger fade in">
+      You are not logged in.. Please login<a href="#/login">here</a>
+          Create a blog
+         </div>
+ -->         
+         <div>
+            If you are not at register , you can register <a href="#/login">here</a>
+            </div>
+          </div>
+        </div> 
+        
+     <div ng-hide="currentUser==''">
+      
+        <div class="generic-container" ng-controller="BlogController as ctrl">
+         
+            <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+            
+              <label>Please fill the blog details...</label>
+              
+              
+               <div class="row"> 
+                 <div class="form-group col-md-12"> 
+                    <label class="col-md-2 control-lable" for="title">Title</label>
+                      <div class="col-md-7">
+                       <input type="text" ng-model="ctrl.blog.title" id="title" class="title form-control input-sm" placeholder="Enter blog title" required ng-minlength="10" ng-maxlength="500">
+                   </div>
+                 </div>
+             </div>
+             
+          <div class="row">
+             <div class="form-group col-md-12">
+                 <label class="col-md-2 control-lable" for="description">Description</label>
+                   <div class="col-md-7">
+                     <textarea name="wysiwyg" id="wysiwyg" rows="5" cols="47" ng-model="ctrl.blog.description" id="description"
+                            class="description form-control input-sm" placeholder="blog description" 
+                            required ng-minlength="5" ng-maxlength="300">
+                            </textarea>
+                            
+                            </div>
+                            </div>
+                            </div>
+                            
+           <div class="row">
+             <div class="form-actions floatRight">
+                 <input type="submit" value="Create Blog" class="w3-btn w3-lime w3-round-xlarge">
+                  <button type="button" ng-click="ctrl.reset()" class="w3-btn w3-light-green w3-round-xlarge">Reset Blog</button>
+               </div>
+             </div>
+           </form>
+          </div> 
+          
+          
+        </div>
+        </div>
+</body>
+</html>

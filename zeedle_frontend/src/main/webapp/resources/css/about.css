@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+h2,h3,h4 {
+    color: purple;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	font-size: 47px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 53.2px;
+	margin-left: 90px;
+	
+}
+h5,h6 {
+    color: #c81474;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	font-size: 40px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 53.2px;
+	margin-left: 90px;
+	color:black;
+	
+}
+h6 {
+    color: brown;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	font-size: 40px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 30.2px;
+	margin-left: 90px;
+	color:brown;
+	
+}
+body {
+	
+}
+

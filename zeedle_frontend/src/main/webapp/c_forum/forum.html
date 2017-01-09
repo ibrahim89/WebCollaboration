@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>FORUM PAGE</title>
+<link rel="stylesheet" type="text/css"href="css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="resources/css/w3.css">
+<style>
+body{
+/* background-image:  url("images/background-stripe-cream-v2.jpg"); */
+}.msg-val{
+  color : red;
+   };
+</style> 
+<style>
+ .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+  
+  </head>
+  <body >
+   <div ng-controller="ForumController as forumCtrl">
+       <div class="container">
+	<form name="forumForm" method="POST">
+	    <table>
+		<tr><td colspan="2">
+		  <div ng-if="forumCtrl.flag != 'edit'">
+		     
+		  </div>
+		  <div ng-if="forumCtrl.flag == 'edit'">
+		     <!-- <h3> Update Forum for ID: {{ blogCtrl.blog.c_id }} </h3>  -->
+		  </div> </td>
+		</tr>
+		
+		<div class="form-group">
+			<div class="col-xs-6 col-sm-6 col-md-6">
+				<label class="control-label" for="name">Title:</label> 
+		        <input type="text" class="form-control" name="forumTitle" placeholder="Title" ng-model="forumCtrl.forum.forumTitle" required/> 
+         	      <span ng-show="forumForm.forumTitle.$error.required" class="msg-val">Forum is required.</span> 
+			</div>
+		</div>
+		
+		<!-- <div class="form-group">
+		<div class="col-xs-6 col-sm-6 col-md-6">
+				<label class=" control-label" for="comment">User Id:</label> 
+		       <input type="text"  class="form-control" name="id" placeholder="User Id" ng-model="forumCtrl.blog.id" required/> 
+	            <span ng-show="forumForm.id.$error.required" class="msg-val">Id is required.</span> 
+		</div>
+		</div> -->
+		<div class="form-group">
+		<div class="col-xs-6 col-sm-6 col-md-6">
+			<label class="col-md-1 control-label" for="comment">Description:</label> 
+		  	<textarea type="textarea" class="form-control" placeholder="Description" maxlength="140" rows="5" name="forumDescription" ng-model="forumCtrl.forum.forumDescription" required/> 
+	        <span ng-show="forumForm.c_desc.$error.required" class="msg-val">Description is required.</span> 
+		</div>
+		</div>
+		
+		
+		<div class="form-group">
+		<tr>
+		     <td colspan="2"> <span ng-if="forumCtrl.flag=='created'" class="msg-success">Forum successfully added.</span>
+		     <span ng-if="forumCtrl.flag=='failed'" class="msg-val">Forum already exists.</span> </td>
+		</tr>
+	        <tr><td colspan="2">
+	            <div ng-if="forumCtrl.flag != 'edit'">
+		       <input  type="submit" class="w3-btn w3-lime w3-round-xlarge" ng-click="forumCtrl.createForum()" value="Add Forum"/> 
+		        <input type="button" class="w3-btn w3-light-green w3-round-xlarge" ng-click="forumCtrl.reset()" value="Reset"/>
+		    </div>
+		    <div ng-if="forumCtrl.flag == 'edit'">
+		       <input  type="submit" class="w3-btn w3-red w3-round-xlarge" ng-click="forumCtrl.updateForumDetail()" value="Update Forum"/> 	
+			   <input type="button" class="w3-btn w3-lime w3-round-xlarge" ng-click="forumCtrl.cancelUpdate()" value="Cancel"/>				   
+		    </div> </td>
+		</tr>
+		<tr>
+		     <td colspan="2"> <span ng-if="forumCtrl.flag=='deleted'" class="msg-success">Forum successfully deleted.</span>
+		</tr>
+	    </table>        
+	</form>
+	<br>
+		<div class="panel panel-danger filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Forum List</h3>
+                <div class="pull-right">
+                    
+                </div>
+            </div>
+            
+            <table class="table table-hover">
+            <thead>
+           <!--  <tr class="filters"> -->
+	      <tr>
+	      <!-- <th width="60">Forum ID </th> -->
+                        <th width="120">Title</th>
+                        <th width="120"> Description</th>
+                        
+                        <th width="60">Delete</th>
+                        <th width="60">Edit</th>
+	            
+	      </tr>
+	      </thead>
+	      <tr ng-repeat="row in forumCtrl.forums">
+	        <!--  <td><span ng-bind="row.c_id"></span></td> -->
+	         <td><span ng-bind="row.forumTitle"></span></td>
+	         <td><span ng-bind="row.forumDescription"></span></td>
+	         <!-- <td><span ng-bind="row.id"></span></td> -->
+	         <!-- <td><a href="blogview{{row.c_id}}"><button type="submit" class="btn btn-primary">View</button></a></td> --> 
+	         <td>
+		    <input type="button" class="w3-btn w3-indigo  w3-small" ng-click="forumCtrl.deleteForum(row.forumId)" value="Delete"/></td>
+		    <td><input type="button" class="w3-btn w3-teal w3-round-small" ng-click="forumCtrl.edit(row.forumId)" value="Edit"/></td>
+		   
+		     
+		    <span ng-if="forumCtrl.flag=='updated' && row.forumId==forumCtrl.updatedId" class="msg-success">Forum successfully updated.</span> </td> 
+	      </tr>	
+	</table>
+	</div>     
+ </body>
+</html>  

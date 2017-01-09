@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Insert title here</title>
+<style>
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+
+</head>
+<body>
+<div id="myDiv">
+<div class="container" ng-controller="JobController as ctrl">
+
+<div ng-repeat="selectedJob in ctrl.jobs">
+<div class="form-group">
+
+ID:<label>{{selectedJob.jId}}</label><br>
+TITLE:<label>{{selectedJob.title}}</label><br>
+DATE:<label>{{selectedJob.dateTime}}</label><br>
+QUALIFICATION:<label>{{selectedJob.qualification}}</label><br>
+DESCRIPTION:<label>{{selectedJob.description}}</label><br>
+
+<button type="button" ng-click="ctrl.applyForJob(selectedJob.jId)"
+           class="w3-btn w3-orange">Apply For Job</button>
+<br><br>
+</div>
+
+</div>
+</div>
+</div>
+</body>
+</html>

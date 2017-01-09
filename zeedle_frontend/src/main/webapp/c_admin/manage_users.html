@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Insert title here</title>
+<style>
+ .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+
+</head>
+<body>
+<br>
+<div class="w3-container">		 
+ <a href="#/view_applied_jobs"><button class="w3-btn w3-purple">View applied Jobs</button></a>
+  <a href="#/post_job"><button class="w3-btn w3-deep-purple">POST JOB</button></a>
+<a href="#/manage_users"><button class="w3-btn w3-deep-purple">MANAGE USERS</button></a>
+</div>
+<div class="container" ng-controller="UserController as ctrl">
+
+
+
+ <div class="row">
+   <div class="table-response">
+   <table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Email</th>							
+							<th>Mobile No</th>
+							<th>Address</th>
+							<th>Role</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+				
+				
+							<tr ng-repeat="user in ctrl.users" class="success" ng-hide="user.id==currentUser.id">
+								<td>{{user.id}}</td>
+								<td>{{user.name}}</td>
+								<td>{{user.email}}</td>
+								<td>{{user.mobile}}</td>
+								<td>{{user.address}}</td>
+								<td>{{user.role}}</td>
+								<td>{{user.status}}</td>			
+													
+				<td><button ng-hide="user.status=='A' || user.status=='R'" type="button" ng-click="ctrl.useraccept(user)" class="w3-btn w3-green">ACCEPT</button></td>
+				
+                <td><button ng-hide="user.status=='A' || user.status=='R'" type="button" ng-click="ctrl.userreject(user)" class="w3-btn w3-red">REJECT</button></td>
+					</tr>
+					
+				
+</tbody>
+</table>
+   </div>
+ </div>
+</div>
+</div>
+</body>
+</html>

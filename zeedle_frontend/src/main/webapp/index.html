@@ -1,0 +1,185 @@
+<html  ng-app="app" lang="en">
+<head>
+  <title>HOME PAGE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">  
+ <link rel="stylesheet" href="resources/css/footer.css">
+
+</head>
+<body >
+
+<!-- style="background-color:#00bfff; -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/zeedle"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/">Home</a></li>
+         <li><a href="#/userlist">Users</a></li> 
+        
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="">Blogs <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#/create_blog">Add New Blogs</a></li>
+            <li><a href="#/list_blog">Blog List</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Job Opportunities<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/view_applied_jobs">View applied Jobs</a></li>
+							<li><a href="#/view_job_details">View Job Details</a></li>
+							<li><a href="#/post_job">Post a new Job</a></li>
+							<li><a href="#/search_job">Search Job</a></li>
+						</ul></li>
+						
+						
+        <li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown">Friends<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/search_friend">Search Friend</a></li>
+							<li><a href="#/view_friend">View Friend</a></li>
+							</ul></li>
+							
+							
+        <li><a href="#/event">Events</a>
+         <li><a href="#/forum">Forum</a>
+		  <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Chat Forums <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a href="#/chatforum">Chat Forum</a></li>
+           <li><a href="#/chat">Chat</a></li>
+          </ul>
+           <li><a href="#/userdetail">User List</a></li>
+           <li><a href="#/aboutus">About US</a></li>
+          </ul>
+        <ul class="nav navbar-nav navbar-right">	
+					<div ng-show="currentUser.role=='admin'">
+						<li><a style="color:white;" href="#/adminhome">/Admin</a></li>
+					</div>
+		</ul>
+		
+		<!-- <ul class="nav navbar-nav navbar-right">
+
+					<div ng-hide="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='student' || currentUser=='employee'">
+						
+						<li><a  style="color:white;" href="#/login"><span
+								class="glyphicon glyphicon-log-in"></span>Login</a></li>
+					</div>
+
+					<div ng-show="currentUser.role=='admin' || currentUser.role=='alumni' || currentUser.role=='student' || currentUser=='employee'">
+						<li><a  href="#" style="color:white;" ng-click="ctrl.logout()"><span
+								class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+					</div>
+				</ul> -->
+       
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+       <div ng-controller="UserController as ctrl">
+    <div ng-hide="currentUser.name!==ctrl.user.name">  
+       <a href="#/login" style="color:white;"><span class="glyphicon glyphicon-log-in" style="color:white;"></span>Login</a>
+      </div>
+      <div ng-hide="currentUser.name===ctrl.user.name">
+       <a href="#/logout" style="color:white;" ng-click="ctrl.logout()"><span style="color:white;" class="glyphicon glyphicon-log-out">Logout</a>
+      </div>
+      </div>     
+     </ul> 
+     </div>
+  </div>
+</nav>
+
+  <div>
+ </div>
+ 
+</div>
+
+	<div ng-view></div>
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+
+	<script src="resources/js/angular.js"></script>
+	<script src="resources/js/angular-resource.min.js"></script>
+	<script src="resources/js/angular-route.js"></script>
+	<script src="resources/js/angular-cookies.js"></script>
+	<script src="resources/js/sockjs.js"></script>
+	<script src="resources/js/stomp.js"></script>
+	<script src="resources/js/lodash.min.js"></script>
+	<script src="resources/lodash/dist/lodash.min.js"></script>
+	
+	<script src="app.js"></script>
+	<script src="c_home/HomeController.js"></script>
+	 <script src="c_user/UserController.js"></script> 
+	<script src="c_user/UserService.js"></script>
+	 <script src="c_blog/BlogController.js"></script>
+	 
+	<script src="c_blog/BlogService.js"></script> 
+	<script src="c_forum/ForumController.js"></script>
+	<script src="c_event/EventController.js"></script>
+	<script src="c_chat/ChatController.js"></script>
+	<script src="c_chat/ChatService.js"></script>
+	<script src="c_chatForum/ChatForumController.js"></script>
+	<script src="c_chatForum/ChatForumService.js"></script>
+	<script src="c_friend/FriendController.js"></script>
+	<script src="c_friend/FriendService.js"></script>
+	<script src="c_job/JobController.js"></script>
+	<script src="c_job/JobService.js"></script>
+	
+	
+ 	 
+ 
+ <!-- FOOTER -->
+<div class="footer">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-5 widget">
+        	    <h2>Article</h2>
+                <article class="widget_content">
+                    <ul>
+                        <li>Tele-Mentoring Is Creating Global Communities of Practice in Health Care</li>
+                        <li>Science-oriented multimedia platform and network for scientists</li>
+                        
+                 </ul>
+                 </article>
+    		</div>
+            <div class="col-md-3 widget">
+        	    <h2>Link</h2>
+                <article class="widget_content">
+                    <ul>
+                        <li>Group Chat</li>
+                        <li>My Event</li>
+                        <li>My BLog</li>
+                        <li>Facebook</li>
+                        <li>Follow me</li>
+                 </ul>
+                 </article>
+    		</div>
+            <div class="col-md-4 widget">
+                <h2>Contact Us</h2>
+                <article class="widget_content">
+                    <p>S. Ibrahim Abdullah, Belveder Road, Mazgon Garden<br> Mumbai India<br>Phone: +918879915155</p>
+                </article>
+    		</div>
+    	</div>
+    </div>
+</div>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+    		<div class="col-md-12 widget">© 2014 | Created with Boostrap <span class="pull-right">Minimize your browser »</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FOOTER ENDED HERE -->
+ 
+</body>
+</html>

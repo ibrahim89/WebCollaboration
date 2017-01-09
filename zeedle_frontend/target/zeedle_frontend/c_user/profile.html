@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<title>Insert title here</title>
+<style>
+h3 {
+    color: #c81474;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	font-size: 47px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 53.2px;
+}
+</style>
+</head>
+<body>
+<div class="container panel">
+<div ng-controller="UserController as ctrl">
+<h3 style="color:#FF00FF;">My Profile</h3>
+<h4>
+<table class="w3-table w3-border w3-khaki w3-padding-64">
+<tr><td>Name:</td><td> {{selectedUser.name}}</td></tr>
+<tr><td>Email:</td><td> {{selectedUser.email}}</td></tr>
+<tr><td>Mobile Number:</td><td> {{selectedUser.mobile}}</td>
+<tr><td>Addres:</td><td> {{selectedUser.address}}</td></tr>
+<tr><td>Username:</td><td> {{selectedUser.name}}</td>
+</tr>
+</table>
+<a href="#/confirmuser"><button type="button" class="w3-btn  w3-purple w3-border w3-border-blue w3-round-xlarge">Edit Profile</button></a>
+</h4>
+</div>
+</div>
+</body>
+</html>

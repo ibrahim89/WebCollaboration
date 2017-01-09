@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<link rel="stylesheet" href="resources/css/w3.css">
+<div id="myDiv" style="background-image:url('resources/images/lg1.jpg');background-repeat: no-repeat; background-size: cover;
+    background-position: center center;">
+<div class="container" ng-controller="UserController as ctrl">
+
+<button type="button" ng-click="ctrl.usermyprofile()"   class="btn btn-warning btn-sm">View Ur Profile</button>
+ &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+<button type="button" ng-click="getform = !getform" class="btn btn-warning btn-sm">Edit Ur Profile</button>
+<div class="form-group">
+<br>
+
+USER NAME:<label>{{ctrl.user.name}}</label><br>
+EMAIL:<label>{{ctrl.user.email}}</label><br>
+PASSWORD:<label>{{ctrl.user.password}}</label><br>
+DATE OF BIRTH:<label>{{ctrl.user.dob}}</label><br>
+MOBILE NO:<label>{{ctrl.user.mob_no}}</label><br>
+ADDRESS:<label>{{ctrl.user.address}}</label><br>
+GENDER:<label>{{ctrl.user.gender}}</label><br>
+
+<!-- NAME:<label>{{currentUser.name}}</label><br>
+EMAIL:<label>{{currentUser.email}}</label><br>
+PASSWORD:<label>{{currentUser.password}}</label><br>
+DATE OF BIRTH:<label>{{currentUser.dob}}</label><br>
+MOBILE NO:<label>{{currentUser.mob_no}}</label><br>
+ADDRESS:<label>{{currentUser.address}}</label><br>
+GENDER:<label>{{currentUser.gender}}</label><br> -->
+                 
+</div>
+
+<div class="formcontainer">
+<form ng-submit="ctrl.userupdate(user)" name="myForm" class="form-horizontal" ng-show="getform">
+<br>
+<label>Edit your profile...</label>
+
+<br>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="name">User Name</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.name" id="name" class="username form-control input-sm" placeholder="Enter your Name" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="mail">Email</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your Email" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="password">Password</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.password" id="password" class="username form-control input-sm" placeholder="Enter your password" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="mob_no">Mobile No:</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.mob_no" id="mob_no" class="mob_no form-control input-sm" placeholder="Enter your contact number" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="password">Date of Birth</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.dob" id="dob" class="username form-control input-sm" placeholder="Enter your date of birth" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="password">Gender</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.gender" id="gender" class="username form-control input-sm" placeholder="Male or Female" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="address">Address</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.address" id="address" class="username form-control input-sm" placeholder="Enter Address" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-actions floatRight">
+<input type="submit" value="Update Ur Profile" class="btn btn-primary btn-sm">
+
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>

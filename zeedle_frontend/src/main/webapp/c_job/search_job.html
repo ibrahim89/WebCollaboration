@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Insert title here</title>
+<style>
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+
+</head>
+<body>
+<div id="myDiv">
+
+<div class="container" ng-controller="JobController as ctrl">
+<p>
+<p>
+<p>
+<p>
+<p>
+<p>
+
+<div class="form-group"></div>
+
+search for job
+
+<input type="text" ng-model="sear_text">
+
+<div ng-repeat="job in ctrl.jobs | filter:sear_text">
+
+<fieldset>
+<legend></legend>
+<p>
+<a href="#" ng-click="ctrl.getJobDetails(job.jId)">Get Job Details</a>
+&nbsp;&nbsp;&nbsp;
+<button type="button" ng-click="ctrl.applyForJob(job.jId)"  class="w3-btn w3-orange">Apply for job</button>
+</p>
+<p>ID:{{job.jId}}</p>
+<p>Title:{{job.title}}</p>
+<p>Qualification:{{job.qualification}}</p>
+</fieldset>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<title>Search Friends</title>
+</style>
+<style type="text/css">
+.msg-val {
+	color: red;
+}
+.msg-success {
+	color: blue;
+} 
+body{
+    background-color:#5DADEC ;
+    color: #0000;
+}
+th {
+    background-color:#09568d ;
+    color:#FFFFFF;	
+}
+</style>
+
+</head>
+<body>
+	<div class="container" ng-controller="FriendController as ctrl">
+<div class="form-group has-feedback"></div>
+<!--  Search for friend
+<p><input type="text" ng-model="sear_text"></p> 
+ --><input type="submit" ng-click="ctrl.getMyFriendRequests()" class="w3-btn w3-yellow w3-border w3-border-red w3-round-xlarge" value="Friend request"/>
+<div ng-repeat="friend in ctrl.friend | filter: sear_text">
+<div ng-hide="currentUser.id !== friend.friendId">
+<p>UserId: {{friend.id}}&nbsp;&nbsp;&nbsp;Status: {{friend.status}}
+<input type="submit" ng-click="ctrl.acceptFriendRequest(friend.id)" class="w3-btn w3-khaki w3-border w3-border-red w3-round-xlarge" value="Accept Friend request"/>
+<input type="submit" ng-click="ctrl.rejectFriendRequest(friend.id)" class="w3-btn w3-red w3-border w3-border-red w3-round-xlarge" value="Reject Friend request"/>
+</fieldset>
+</div>
+</div> 
+</body>
+</html>

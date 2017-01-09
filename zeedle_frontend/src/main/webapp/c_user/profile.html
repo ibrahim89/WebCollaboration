@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Insert title here</title>
+<style>
+h3 {
+    color: #c81474;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	font-size: 47px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 53.2px;
+}
+</style>
+</head>
+<body>
+<div class="container panel">
+<div ng-controller="UserController as ctrl">
+<h3 style="color:#FF00FF;">My Profile</h3>
+<h4>
+<form name="userForm"   method="post">
+	<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img  style="width:110px;height:110px" src="resources/images/{{currentUser.id}}.jpg" class="img-responsive" alt="">
+				</div>
+				<br><br>
+				<!-- resources/images/users/{{selectedUser.id}} -->
+				
+				<div >
+ 				<input type="file" file-model="myFile"  />
+ 				</div> 
+				 <button type="button"  ng-click="ctrl.updateUser()" >Update Image</button> 
+				 <br><br>
+				 </form> 
+				<!-- END SIDEBAR USERPIC -->
+
+<table class="w3-table w3-border w3-khaki w3-padding-64">
+<tr><td>Name:</td><td> {{currentUser.name}}</td></tr>
+</td></tr>
+ <tr><td>Email:</td><td> {{currentUser.email}}</td></tr>
+<tr><td>Mobile Number:</td><td> {{currentUser.mobile}}</td>
+<tr><td>Addres:</td><td> {{currentUser.address}}</td></tr>
+<tr><td>Username:</td><td> {{currentUser.name}}</td>
+</tr>
+</table>
+<!-- <a href="#/confirmuser"><button type="button" class="w3-btn  w3-purple w3-border w3-border-blue w3-round-xlarge">Edit Profile</button></a> -->
+ <button type="button" ng-click="getform = !getform" class="btn btn-warning btn-sm">Edit Ur Profile</button> 
+</h4>
+<form ng-submit="ctrl.userupdate(user)" name="myForm" class="form-horizontal" ng-show="getform">
+<br>
+<label>Edit your profile...</label>
+
+<br>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="name">User Name</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.name" id="name" class="username form-control input-sm" placeholder="Enter your Name" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="mail">Email</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your Email" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="password">Password</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.password" id="password" class="username form-control input-sm" placeholder="Enter your password" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="mob_no">Mobile No:</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.mobile" id="mob_no" class="mob_no form-control input-sm" placeholder="Enter your contact number" required />
+</div>
+</div>
+</div>
+
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-lable"for="address">Address</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.user.address" id="address" class="username form-control input-sm" placeholder="Enter Address" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-actions floatRight">
+<input type="submit" value="Update Ur Profile" class="btn btn-primary btn-sm">
+
+</div>
+</div>
+</form>
+
+</div>
+</div>
+</body>
+</html>

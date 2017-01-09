@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Insert title here</title>
+<style>
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+
+</head>
+<body>
+<div id="myDiv" style="background-image:url('resources/images/job2.jpg');background-repeat: no-repeat; background-size: cover;
+    background-position: center center;">
+<div>
+<div ng-show="currentUser==''">
+<div class="alert alert-danger fade in">
+<div>
+You are not logged in.Please login<a href="#/login">Here</a>to create a job
+</div>
+<div>
+If you have not yet registered, you can register<a href="#/register">Here</a>
+</div>
+</div>
+</div>
+<div ng-hide="currentUser==''">
+<div class="generic-container" ng-controller="JobController as ctrl">
+<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+<label>Please fill the job details...</label>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-label" for="title">Job Title</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.job.title" id="title" class="title form-controlinput-sm" placeholder="Enter job title" required ng-minlength="5"/>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-label" for="qualification">Qualification</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.job.qualification" id="qualification" class="company form-controlinput-sm" placeholder="Enter Qualification for Job" required ng-minlength="5"/>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-label" for="dateTime">Date</label>
+<div class="col-md-7">
+<input type="text" ng-model="ctrl.job.dateTime" id="dateTime" class="company form-controlinput-sm" placeholder="Enter date for Job" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-12">
+<label class="col-md-2 control-label" for="description">Job Details</label>
+<div class="col-md-7">
+<textarea rows="10"cols="100" ng-model="ctrl.job.description" id="description" class="job_Detail form-controlinput-sm" placeholder="Enter the Job Details" required ng-minlength="10" ng-maxlength="100">
+</textarea>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="form-actions floatRight">
+<input type="submit" class="w3-btn  w3-indigo w3-border w3-border-dark-blue w3-round-xlarge" value="Create Job" class="btn btn-primary btn-sm">
+<button type="button" class="w3-btn  w3-khaki w3-border w3-border-dark-blue w3-round-xlarge" ng-click="ctrl.reset()" class="btn btn-warning btn-sm">Reset Job</button>
+</div>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

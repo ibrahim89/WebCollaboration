@@ -1,0 +1,85 @@
+
+<style>
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+<link rel="stylesheet" href="resources/css/w3.css">
+<div id="myDiv">
+<div class="container" ng-controller="BlogController as ctrl">
+<div class="form-group">
+Title : <label> {{selectedBlog.title}} </label><br>
+Written BY : <label> {{selectedBlog.id}}</label><br>
+Description : <label> {{selectedBlog.description}}</label><br>
+<br>
+<div class="row">
+
+<form ng-submit="ctrl.addcomment(selectedBlog.blogId,ctrl.blogcomment.bcomment,ctrl.blogcomment.rating)">
+<div class="form-group col-md-6">
+<input type="text" ng-model="ctrl.blogcomment.bcomment" id="id" class="form-control input-sm" placeholder="Enter your comment"/><br>
+
+<div class="form-group col-md-6"></div></div>
+<br>
+<br>
+<span class="starRating" ng-hide="currentUser.blogId==selectedBlog.id">
+<br>
+
+<input id="rating5" type="radio" name="ratingss" ng-model="ctrl.blogcomment.rating" value="5"> 
+ <label for="rating5">5</label>  &nbsp; &nbsp; &nbsp;
+ 
+ <input id="rating4" type="radio" name="ratingss" ng-model="ctrl.blogcomment.rating" value="4">
+ <label for="rating4">4</label>  &nbsp; &nbsp; &nbsp;
+ 
+ <input id="rating3" type="radio" name="ratingss" ng-model="ctrl.blogcomment.rating" value="3">
+ <label for="rating3">3</label>  &nbsp; &nbsp; &nbsp;
+ 
+ <input id="rating2" type="radio" name="ratingss" ng-model="ctrl.blogcomment.rating" value="2">
+ <label for="rating2">2</label>  &nbsp; &nbsp; &nbsp;
+ 
+ <input id="rating1" type="radio" name="ratingss" ng-model="ctrl.blogcomment.rating" value="1">
+ <label for="rating1">1</label>  &nbsp; &nbsp; &nbsp;
+</span> 
+
+<button type="submit"  class="w3-btn w3-orange">Submit</button>
+<br></form>
+<br>
+
+<div class="form-group">
+<!-- <button type="submit"  ng-click="ctrl.getSelectedBlogComment(selectedBlog.blogId)" class="btn btn-warning btn-sm">View Comments</button><br><br> -->
+<table class="table table-hover table-bordered">
+<thead>
+<tr>
+<th>Comment By</th>
+<th>Comment</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tr ng-repeat="selectedBlogComment in ctrl.blogcomments">
+ 
+
+<td> {{selectedBlogComment.id}}</td>
+<td>{{selectedBlogComment.bcomment}}</td>
+<td>{{selectedBlogComment.rating}}</td>
+
+</tr>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

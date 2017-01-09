@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<title>Insert title here</title>
+</style>
+<style type="text/css">
+.msg-val {
+	color: red;
+}
+.msg-success {
+	color: blue;
+} 
+body{
+    background-color:#5DADEC ;
+    color: #0000;
+}
+th {
+    background-color:#09568d ;
+    color:#FFFFFF;	
+}
+</style>
+
+</head>
+<body>
+<div class="container" ng-controller="FriendController as ctr"> 
+<input type="submit" ng-click="ctr.getMyFriend()" class="w3-btn w3-orange w3-border w3-border-red w3-round-xlarge" value="get Friend"/>  
+<div ng-repeat="friend in ctr.friend | filter: sear_text">
+<div class="container" ng-controller="UserController as ctrl">
+<div ng-hide="currentUser.id !== friend.friendId">
+<p>friend Id: {{friend.id}} &nbsp;&nbsp;&nbsp;Status: {{friend.status}}
+<!-- <input type="submit" ng-click="ctr.unFriend(friend.id)" class="btn btn-warning" value="unfriend"/> -->
+<a href="#/chat"><input type="submit" class="w3-btn w3-khaki w3-border w3-border-red w3-round-xlarge" value="Send Message"/></a>
+</p></div>
+</div> 
+</div>
+</div>
+
+</body>
+</html>

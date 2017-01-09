@@ -1,0 +1,100 @@
+<html  ng-app="app" lang="en">
+<head>
+  <title>HOME PAGE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">  
+ 
+
+</head>
+<body >
+
+<!-- style="background-color:#00bfff; -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/zeedle"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/">Home</a></li>
+         <li><a href="#/userlist">Users</a></li> 
+        
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="">Blogs <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#/blog">Add New Blogs</a></li>
+            <li><a href="#/blogList">Blog List</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Friends <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#/friend">View friends</a></li>
+            <li><a href="#/friendrequest">Friend request</a></li>
+          </ul>
+        </li>
+        <li><a href="#/event">Events</a>
+		  <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Chat Forums <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a href="#/chatforum">Chat Forum</a></li>
+           <li><a href="#/chat">Chat</a></li>
+          </ul>
+           <li><a href="#/userdetail">User List</a></li>
+           <li><a href="#/aboutus">About US</a></li>
+        </li>
+       
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+       <div ng-controller="UserController as ctrl">
+    <div ng-hide="currentUser.name!==ctrl.user.name">  
+       <a href="#/login"><input type="submit" class="w3-btn w3-purple w3-border w3-border-red w3-round-xlarge" value="Login"/></a>
+      </div>
+      <div ng-hide="currentUser.name===ctrl.user.name">
+       <input type="submit" ng-click="ctrl.logout()" class="w3-btn w3-khaki w3-border w3-border-red w3-round-xlarge" value="Logout"/>
+      </div>
+      </div>      </ul>
+     </div>
+  </div>
+</nav>
+
+  <div>
+ </div>
+</div>
+
+	<div ng-view></div>
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+
+	<script src="resources/js/angular.js"></script>
+	<script src="resources/js/angular-resource.min.js"></script>
+	<script src="resources/js/angular-route.js"></script>
+	<script src="resources/js/angular-cookies.js"></script>
+	<script src="resources/js/sockjs.js"></script>
+	<script src="resources/js/stomp.js"></script>
+	<script src="resources/js/lodash.min.js"></script>
+	<script src="resources/lodash/dist/lodash.min.js"></script>
+
+	<script src="app.js"></script>
+	<script src="c_home/HomeController.js"></script>
+	 <script src="c_user/UserController.js"></script> 
+	<script src="c_user/UserService.js"></script>
+	<script src="c_blog/BlogController.js"></script>
+	<script src="c_blog/BlogService.js"></script>
+	<script src="c_event/EventController.js"></script>
+	<script src="c_chat/ChatController.js"></script>
+	<script src="c_chat/ChatService.js"></script>
+	<script src="c_forum/ChatForumController.js"></script>
+	<script src="c_forum/ChatForumService.js"></script>
+	<script src="c_friend/FriendController.js"></script>
+	<script src="c_friend/FriendService.js"></script>
+
+</body>
+</html>

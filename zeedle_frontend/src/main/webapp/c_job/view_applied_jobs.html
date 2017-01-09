@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>View Applied Jobs</title>
+</head>
+<style>
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+
+<body>
+<div id="myDiv">
+<div class="container" ng-controller="JobController as ctrl">
+<table class="table table-hover">
+<thead style="background-color:pink;color:black;">
+<tr>
+<th>Job Id</th>
+<th>User Id</th>
+<th>Status</th>
+<!-- <th>Remarks</th> -->
+</tr>
+</thead>
+
+<tr ng-repeat="jobapplied in ctrl.jobsapplied">
+
+
+<td>{{jobapplied.jobID}}</td>
+<td>{{jobapplied.id}}</td>
+<td>{{jobapplied.status}}</td>
+<!-- <td>{{jobapplied.remarks}}</td> -->
+
+</tr>
+</table>
+
+<br>
+</div>
+
+</div>
+</div>
+</div>
+</body>
+</html>
