@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	  http://www.springframework.org/schema/mvc
+	   http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	    http://www.springframework.org/schema/context
+	     http://www.springframework.org/schema/context/spring-context.xsd
+	      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
+		<property name="username" value="IBRAHIM_DB" />
+		<property name="password" value="123" />
+	</bean>
+
+	<context:component-scan base-package="com.zeedle"></context:component-scan>
+	<tx:annotation-driven></tx:annotation-driven>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.zeedle.model</value>
+
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10240000" />
+	</bean>
+
+<!--  <bean id="jobService" class="com.zeedle.service.JobService"></bean> 
+	<bean id="jobDAO" class="com.zeedle.dao.JobDAOImpl" ></bean>-->
+	<bean id="jobApplication" class="com.zeedle.model.JobApplication" ></bean>
+	<!-- <bean id="blogComment" class="com.zeedle.model.BlogComment"></bean> -->
+ <!-- <bean id="friend" class="com.zeedle.model.Friend" ></bean> -->
+ <bean id="friends" class="com.zeedle.model.Friends" ></bean>
+ <bean id="user" class="com.zeedle.model.UserDetail" ></bean> 
+ <bean id="blog" class="com.zeedle.model.Blog" ></bean> 
+   </beans>
