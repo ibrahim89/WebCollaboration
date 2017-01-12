@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.zeedle.daoimpl.FriendsDAOImpl;
 import com.zeedle.model.Friends;
 
-@Transactional
 @Service
+@Transactional
 public class FriendsService {
 	@Autowired (required=true)
 	FriendsDAOImpl friendsDAO;

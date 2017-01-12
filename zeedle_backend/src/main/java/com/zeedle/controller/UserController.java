@@ -159,6 +159,8 @@ public class UserController {
 		int Id =(Integer)session.getAttribute("loggedInUserId");
 		
 		//C:\\zeedle_frontend\\src\\main\\webapp\\resources\\images\\
+		/*String rootDirectory = request.getSession().getServletContext().getRealPath("/");*/
+		/*System.out.println("Real path is="+rootDirectory);*/
 	   String rootDirectory = "C:\\collaboration-website\\zeedle_frontend\\src\\main\\webapp\\resources\\images\\"+Id+".jpg";
 	   File f=new File(rootDirectory);
 	 

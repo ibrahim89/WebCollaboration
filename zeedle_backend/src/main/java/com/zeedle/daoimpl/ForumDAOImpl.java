@@ -2,6 +2,7 @@ package com.zeedle.daoimpl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +24,26 @@ public class ForumDAOImpl implements ForumDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public boolean addForum(Forum forum) {
-		sessionFactory.getCurrentSession().save(forum);
-		return false;
+	public void addForum(Forum forum) {
+		sessionFactory.getCurrentSession().save(forum);	
+	
 	}
 
-	public List<Forum> forumList() {
+	public List<Forum> listForum() {
 		@SuppressWarnings("unchecked")
-		List<Forum> listForum = (List<Forum>) sessionFactory.getCurrentSession().createCriteria(Forum.class).list();
+		List<Forum> listForum = (List<Forum>)sessionFactory.getCurrentSession().createCriteria(Forum.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listForum;
 	}
 
-	public Forum getForumById(int forumId) {
-		String hql = "from Forum where forumId=" + "'" + forumId + "'";
+	public void delete(int forumId) {
+		Forum forumToDelete = new Forum();
+		forumToDelete.setForumId(forumId);
+		sessionFactory.getCurrentSession().delete(forumToDelete);			
+	}
+
+	public Forum get(int forumId) {
+		String hql = "from Forum where forumID=" + "'" + forumId + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")
@@ -47,16 +55,12 @@ public class ForumDAOImpl implements ForumDAO {
 		return null;
 	}
 
-	public void update(Forum forum) {
-		sessionFactory.getCurrentSession().update(forum);
-
+	public void updateForum(Forum forum) {
+		Forum f =get(forum.getForumId());
+		f.setTitle(forum.getTitle());
+		f.setDescription(forum.getDescription());
+		sessionFactory.getCurrentSession().update(f);		
 	}
 
-	public void delete(int forumId) {
-		Forum ForumToDelete = new Forum();
-		ForumToDelete.setForumId(forumId);
-		sessionFactory.getCurrentSession().delete(ForumToDelete);
-
-	}
-
+	
 }

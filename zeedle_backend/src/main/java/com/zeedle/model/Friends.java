@@ -9,11 +9,9 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="c_friend")
+@Table
 @Component
 public class Friends extends BaseDomain{
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -21,8 +19,6 @@ public class Friends extends BaseDomain{
 	private int friendID;
 	private String status;
 	private char isOnline;
-	
-	
 	public int getId() {
 		return id;
 	}
@@ -53,9 +49,6 @@ public class Friends extends BaseDomain{
 	public void setIsOnline(char isOnline) {
 		this.isOnline = isOnline;
 	}
-
-	
-	
 	
 	
 	

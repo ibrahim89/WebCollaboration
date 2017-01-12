@@ -2,11 +2,9 @@ package com.zeedle.dao;
 
 import java.util.List;
 
-import com.zeedle.model.Friends;;
-
+import com.zeedle.model.Friends;
 
 public interface FriendsDAO {
-
 public List<Friends> getMyFriend(int userID);
 	
 	public Friends get(int userID, int friendID);
@@ -17,5 +15,4 @@ public List<Friends> getMyFriend(int userID);
 		public List<Friends> getNewFriendRequests(int userID);
 		public void setOnline(int userID);
 		public void setOffLine(int loggedInUserID);
-	
 }

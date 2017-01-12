@@ -1,5 +1,4 @@
 package com.zeedle.controller;
-
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,13 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.zeedle.model.Friends;
 import com.zeedle.model.UserDetail;
-import com.zeedle.service.FriendsService;;
+import com.zeedle.service.FriendsService;
 
 @RestController
-
 public class FriendController {
-
-	 private static final Logger Logger = LoggerFactory.getLogger(FriendController.class);
+private static final Logger Logger = LoggerFactory.getLogger(FriendController.class);
 	
 	@Autowired
 	FriendsService friendService;
@@ -33,38 +30,35 @@ public class FriendController {
 	
 	@RequestMapping(value="/myFriends",method = RequestMethod.GET)
     public ResponseEntity<List<Friends>> getMyFriends(HttpSession session) {
-	 
-		int loggedInUserId =(Integer)session.getAttribute("loggedInUserId");
-		System.out.println("loggedInUserId is="+loggedInUserId);
-		List<Friends> myFriends= friendService.getMyFriend(loggedInUserId);
-		return new ResponseEntity<List<Friends>>(myFriends, HttpStatus.OK);
+	
+		Logger.debug("->->->calling method get my friend");
+		int loggedInUserID = (Integer) session.getAttribute("loggedInUserId");
 		
-		/*Logger.debug("->->->calling method get my friend");
-		int loggedInUserID = (Integer) session.getAttribute("loggedInUserID");
-		
-		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		/*User loggedInUser = (User) session.getAttribute("loggedInUser");*/
 		
 		List<Friends> myFriends = friendService.getMyFriend(loggedInUserID);
 		
-		if(myFriends.isEmpty())
+		/*if(myFriends.isEmpty())
 		{
 			Logger.debug("friends doest not exits for the user :" +loggedInUserID);
+			
 			friends.setErrorCode("404");
 			friends.setErrorMessage("You does not have friends");
 			myFriends.add(friends);
 			
-		}
+		}*/
 		Logger.debug("send the friend list");
 		
-		return new ResponseEntity<List<Friends>>(myFriends, HttpStatus.OK);*/
+		return new ResponseEntity<List<Friends>>(myFriends, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/addFriend/{friendID}", method = RequestMethod.POST)
 	public ResponseEntity<Friends> sendFriendRequest(@PathVariable("friendID") int friendID,HttpSession session) {
 		
 		Logger.debug("->->->calling method sendfriendRequest");
-		UserDetail loggedInUser=(UserDetail) session.getAttribute("loggedInUser");
-		friends.setUserID(loggedInUser.getId());
+		int loggedInUserID = (Integer)session.getAttribute("loggedInUserId");
+		/*UserDetail loggedInUser=(UserDetail) session.getAttribute("loggedInUser");*/
+		friends.setUserID(loggedInUserID);
 		friends.setFriendID(friendID);
 		friends.setStatus("N");
 		friends.setIsOnline('Y');
@@ -112,8 +106,8 @@ public class FriendController {
 	@RequestMapping(value="/acceptFriend/{friendID}", method = RequestMethod.GET)
 	public ResponseEntity<Friends> acceptFriendRequest(@PathVariable("friendID") int friendID, HttpSession session) {
 		
-		UserDetail loggedInUser = (UserDetail) session.getAttribute("loggedInUser");
-		friends.setUserID(loggedInUser.getId());
+		int loggedInUserID = (Integer)session.getAttribute("loggedInUserId");
+	/*	friends.setUserID(loggedInUser.getId());*/
 		friends.setFriendID(friendID);
 		friends.setStatus("A");
 		friendService.update(friends);
@@ -129,7 +123,7 @@ public class FriendController {
 	}
 	
 	 @RequestMapping(value="/friendaccept/{id}" , method = RequestMethod.PUT)
-	   public  ResponseEntity<Friends> friendaccept(@PathVariable("id") String id, @RequestBody Friends friends ) 
+	   public  ResponseEntity<Friends> friendaccept(@PathVariable("id") int id, @RequestBody Friends friends ) 
 	   {
 		   friends = friendService.get(friends.getId());
 		
@@ -149,7 +143,7 @@ public class FriendController {
 	   }
 	
 	 @RequestMapping(value="/friendreject/{id}" , method = RequestMethod.PUT)
-	   public  ResponseEntity<Friends> friendreject(@PathVariable("id") String id, @RequestBody Friends friends ) 
+	   public  ResponseEntity<Friends> friendreject(@PathVariable("id") int id, @RequestBody Friends friends ) 
 	   {
 		   friends = friendService.get(friends.getId());
 		
@@ -167,5 +161,4 @@ public class FriendController {
 		   
 		   return new ResponseEntity<Friends>(friends, HttpStatus.OK);
 	   }
-		 
 }

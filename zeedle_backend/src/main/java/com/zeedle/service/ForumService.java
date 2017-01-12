@@ -16,24 +16,25 @@ public class ForumService {
 	@Autowired(required=true)
 	ForumDAOImpl forumDAO;
 	
-	public boolean addForum(Forum forum) {
-		return forumDAO.addForum(forum);
+	public void addForum(Forum forum) {
+		forumDAO.addForum(forum);
 	}
 	
-	
-	public List<Forum> forumList() {
-		return forumDAO.forumList();
-	}
-	
-	public Forum getForumById(int forumId) {
-		return forumDAO.getForumById(forumId);
-	}
-	
-	public void update(Forum forum) {
-		forumDAO.update(forum);
+	public List<Forum> listForum() {
+		return forumDAO.listForum();
 	}
 	
 	public void delete(int forumId) {
 		forumDAO.delete(forumId);
 	}
+	
+	public Forum get(int forumId) {
+		return forumDAO.get(forumId);
+	}
+	
+	public void updateForum(Forum forum) {
+       forumDAO.updateForum(forum);
+	}
+	
+	
 }
