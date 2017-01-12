@@ -19,7 +19,7 @@ h3 {
 <body>
 <div class="container panel">
 <div ng-controller="UserController as ctrl">
-<h3 style="color:#FF00FF;">My Profile</h3>
+<h3 style="color:brwon;">My Profile</h3>
 <h4>
 <form name="userForm"   method="post">
 	<!-- SIDEBAR USERPIC -->
@@ -37,7 +37,7 @@ h3 {
 				 </form> 
 				<!-- END SIDEBAR USERPIC -->
 
-<table class="w3-table w3-border w3-khaki w3-padding-64">
+<table class="w3-table w3-border w3-brown w3-padding-64">
 <tr><td>Name:</td><td> {{currentUser.name}}</td></tr>
 </td></tr>
  <tr><td>Email:</td><td> {{currentUser.email}}</td></tr>
@@ -47,7 +47,7 @@ h3 {
 </tr>
 </table>
 <!-- <a href="#/confirmuser"><button type="button" class="w3-btn  w3-purple w3-border w3-border-blue w3-round-xlarge">Edit Profile</button></a> -->
- <button type="button" ng-click="getform = !getform" class="btn btn-warning btn-sm">Edit Ur Profile</button> 
+ <!-- <button type="button" ng-click="getform = !getform" class="btn btn-success btn-sm">Edit Profile</button> --> 
 </h4>
 <form ng-submit="ctrl.userupdate(user)" name="myForm" class="form-horizontal" ng-show="getform">
 <br>

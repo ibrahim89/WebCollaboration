@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="resources/css/w3.css">
 <div id="myDiv" >
 <div class="container" ng-controller="FriendController as ctrl">
@@ -17,9 +18,9 @@
      Search 
 
      <input type="text" ng-model="sear_text">
+     <!-- ng-hide="user.id==currentUser.id" && ng-hide="user.role=='admin'" -->
      
-     
-         <div ng-repeat="user in ctrl.users | filter: sear_text" ng-hide="user.id==currentUser.id" && ng-hide="user.role=='admin'">
+         <div ng-repeat="user in ctrl.users | filter: sear_text" >
          
              <fieldset>
                   <legend></legend>
@@ -29,7 +30,7 @@
                    <p>ID: {{user.id}} &nbsp; &nbsp; &nbsp; Name: {{user.name}}
                       &nbsp; &nbsp; &nbsp;  <button type="button" ng-click="ctrl.sendFriendRequest(user.id)" 
                                                         
-                        class="w3-btn w3-orange">Send Friend Request</button>
+                        class="w3-btn w3-small w3-round-large w3-brown">Send Friend Request</button>
                     </p>
                     
                    <p>Email: {{user.email}} &nbsp; &nbsp; &nbsp; Mobile:{{user.mob_no}}</p>

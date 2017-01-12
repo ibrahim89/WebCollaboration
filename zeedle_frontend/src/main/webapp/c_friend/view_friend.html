@@ -1,4 +1,22 @@
 <link rel="stylesheet" href="resources/css/w3.css">
+<style>
+ .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+
 <div id="myDiv">
 <div class="container" ng-controller="FriendController as ctrl">
 
@@ -21,30 +39,31 @@
     
       <div ng-repeat="friend in ctrl.friends | filter: sear_text">
       <br>
-      
-      <div class="container">
-        <a ng-click="ctrl.getMyAcceptedFriends()">Friends Accepted</a>
+     
+ <!--     <div class="container">
+        <a ng-click="friend.getMyAcceptedFriends()">Friends Accepted</a>
       
      
 
 		<div class="form-group">
-		Name : <label> {{getMyAcceptedFriend.friendID}} </label>&nbsp; &nbsp; &nbsp;
+		Name : <label> {{getMyAcceptedFriend.id}} </label>&nbsp; &nbsp; &nbsp;
 		Online : <label> {{getMyAcceptedFriend.isOnline}} ,</label><br>
 		<a href="#/chat">Send Message</a>
-
-       </div></div> 
- 
+       </div></div>  -->
+       
            <fieldset >
                <legend></legend>
-               
-                 <p>Name: {{friend.friendID}} &nbsp; &nbsp; &nbsp; Status: {{friend.status}} &nbsp; &nbsp; &nbsp;
+                 <div ng-hide="currentUser.id !== friend.userID"> 
+                 <p>Friend ID {{friend.friendID}} &nbsp; &nbsp; &nbsp; Status: {{friend.status}} &nbsp; &nbsp; &nbsp;
                  <button ng-show="friend.status=='N'" ng-hide="friend.status=='A'" type="button" 
-                            ng-click="ctrl.friendaccept(friend)" class="w3-btn w3-orange">ACCEPT</button>
+                            ng-click="ctrl.friendaccept(friend)" class="w3-btn w3-round-large w3-brown">ACCEPT</button>
                   <button ng-show="friend.status=='N'" ng-hide="friend.status=='A'" type="button" 
-                            ng-click="ctrl.friendreject(friend)" class="w3-btn w3-red">REJECT</button>
+                            ng-click="ctrl.friendreject(friend)" class="w3-btn w3-round-large w3-red">REJECT</button>
                  </p>
                 <a href="#/chat">Send Message</a>
+                </div>
             </fieldset>
           </div>     
+          </div>
        </div>   
        </div>        

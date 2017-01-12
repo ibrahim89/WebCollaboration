@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="resources/css/w3.css">
+<title>Forum List</title>
+<style>
+
+</style>
+<style>
+ .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #f0f0f0;
+    width: 100%;
+  }
+  .footer-bottom{
+   position:absolute;
+   bottom:-150;
+   width:100%;
+   height:20px;   
+   background:purple;//optional
+  
+  }
+  </style>
+  <style>
+h5,h2 {
+    color: #c81474;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	font-size: 30px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 30.2px;
+}
+</style>
+  
+
+</head>
+<body>
+<h2 align="center">Forum List</h2>
+<div ng-controller="ForumController as forumCtrl" class="container">
+<div class="form-group has-feedback"></div>
+<div class="row">
+<div class="col-sm-12">
+<p align="right"><input type="text" ng-model="sear_text" placeholder="Search.." class="form-control cols-sm-5"></p>
+</div>
+</div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+            	<th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in forumCtrl.forums | filter: sear_text">
+            	<td><span ng-bind="row.forumId"></span></td>
+	        	<td><span ng-bind="row.title"></span></td>
+	         	<td><span ng-bind="row.description"></span></td>
+                <td><input type="submit" class="w3-btn w3-small w3-indigo" ng-click="forumCtrl.viewForum(row.forumId)" data-toggle="modal" data-target="#myModal" class="w3-btn w3-purple" value="View Forum"/></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h5 class="modal-title">Title: {{forumCtrl.viewforum.title}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>Description: {{forumCtrl.viewforum.description}}</p>
+          <div ng-controller="ForumMemberController as forumMemberCtrl">
+          <form class="form-horizontal" name="forumMemberForm" method="POST">
+     			<input type="submit" ng-click="forumMemberCtrl.addForumMember()" class="w3-btn w3-small w3-green" value="Join Forum"/>  
+           </form>
+           </div>
+           </br>
+            <div ng-controller="ForumMemberController as forumMemberCtrl">
+            <input type="submit" ng-click="forumMemberCtrl.fetchAllForumMembers()" class="w3-btn  w3-small w3-orange" value="View Members"/></br>
+           		<table class="table table-bordered">
+			        <!-- <thead>
+			            <tr>
+			            	<th>Id</th>
+			                <th>UserId</th>
+			                <th>ForumId</th>
+			                <th>Action</th>
+			            </tr>
+			        </thead> -->
+			        </br>
+			        <tbody>
+			            <tr ng-repeat="row in forumMemberCtrl.forummembers">
+			            	<!-- <td><span ng-bind="row.forumMemberId"></span></td> -->
+				        	<td>User Id: <span ng-bind="row.userId"></span></td>
+				         	<td>Forum Id:<span ng-bind="row.forumId"></span></td>
+			                <!-- <td><input type="submit" ng-click="forumMemberCtrl.deleteForumMember(row.forumMemberId)" class="w3-btn w3-small w3-red" value="Delete"/></td> -->
+			            </tr>
+			        </tbody>
+			    </table> 		
+           </div>
+            Comment:
+          <div ng-controller="ForumCommentController as forumCommentCtrl">
+            <form class="form-horizontal" name="forumCommentForm" method="POST">
+     			<input type="text" name="forumCommentContent" ng-model="forumCommentCtrl.forumcomment.forumCommentContent" class="form-control" placeholder="Enter comment" /><br>
+     			<input type="submit" ng-click="forumCommentCtrl.addForumComment()" class="w3-btn w3-small w3-green" value="Add Comment"/>
+            		<!-- No. of comments {{forumCommentCtrl.forumcomments.length}} -->
+            </form>  
+           </div>
+           </br>
+           <div ng-controller="ForumLikeController as forumLikeCtrl">
+            <form class="form-horizontal" name="forumLikeForm" method="POST">
+     			<input type="submit" ng-click="forumLikeCtrl.addForumLike()" class="w3-btn w3-small w3-purple" value="Like"/>
+     			No. of likes {{forumLikeCtrl.forumlikes.length}}
+            </form>  
+           </div>
+           </br>
+           <div ng-controller="ForumCommentController as forumCommentCtrl">
+           <input type="submit" ng-click="forumCommentCtrl.fetchAllForumComments()" class="w3-btn w3-small w3-purple" value="View comments"/>
+           				No. of comments {{forumCommentCtrl.forumcomments.length}}</br>
+           		<table class="table table-bordered">
+			        <!-- <thead>
+			            <tr>
+			            	<th>Id</th>
+			                <th>UserId</th>
+			                <th>Comment</th>
+			                <th>ForumId</th>
+			                <th>Action</th>
+			            </tr>
+			        </thead> -->
+			        </br>
+			        <tbody>
+			            <tr ng-repeat="row in forumCommentCtrl.forumcomments">
+			            	<!-- <td><span ng-bind="row.forumCommentId"></span></td> -->
+				        	<td>User Id: <span ng-bind="row.userId"></span></td>
+				         	<td><span ng-bind="row.forumCommentContent"></span></td>
+				         	<!-- <td><span ng-bind="row.forumId"></span></td> -->
+			                <!-- <td><input type="submit" ng-click="forumCommentCtrl.deleteForumComment(row.forumCommentId)" class="w3-btn w3-small w3-red" value="Delete"/></td> -->
+			            </tr>
+			        </tbody>
+			    </table> 		
+           </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="w3-btn w3-purple" ng-click="forumCtrl.close()" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</div>
+</body>
+</html>

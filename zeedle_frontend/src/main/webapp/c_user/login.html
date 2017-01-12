@@ -16,7 +16,7 @@
 
 <style type="text/css">
 /* body{background-image: url("resources/images/b6.jpg"); */
-body{background-color:purple;}
+body{background-color:Gray;}
 text-color:while;
 }
 </style>
@@ -47,10 +47,10 @@ text-color:while;
 					  <div class="form-group" >
 					    <input type="text" name="name" ng-model="userCtrl.user.name" class="form-control" id="inputSuccess" placeholder="Username">
 					    <div class="login-bottom-text checkbox hidden-sm">
-						    <label>
+						    <!-- <label>
 						      <input type="checkbox" id="">
 						      Keep me sign in
-						    </label>
+						    </label> -->
 						  </div>
 					  </div>
 				</div>	
@@ -121,10 +121,11 @@ text-color:while;
 				  <input type="password" class="form-control" name="password" ng-model="password" required/> 
 				</div>
 
-				<div class="row">
- 				<div class="col-lg-12">
+				<div class="form-group">
+ 			
+ 				 <label style="color:white;" class="control-label" for="">Select Image</label>
  				<input type="file" file-model="myFile"/>
- 				</div>
+ 				
  </div>
 		      				 
 				<div style="height:10px;"></div>

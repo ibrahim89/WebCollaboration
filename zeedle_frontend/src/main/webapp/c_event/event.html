@@ -20,13 +20,22 @@ th {
     background-color:#09568d ;
     color:#FFFFFF;	
 }
+h2 {
+    color: #c81474;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	font-size: 47px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 53.2px;
+}
 </style>
 </head>
 <div ng-controller="EventController as eventCtrl">
 <body   ng-app="" >
 <form name="eventForm"  method="POST" >
 <div ng-if="eventCtrl.flag != 'edit'">
-		     <h3 align=center> Add New Event </h3> 
+		     <h2 align=center> Add New Event </h3> 
 		  </div>
 		  <div ng-if="eventCtrl.flag == 'edit'">
 		     <h3> Update Event for ID: {{ eventCtrl.event.id }} </h3> 

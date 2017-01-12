@@ -89,11 +89,25 @@ app.config(function($routeProvider) {
 		templateUrl : 'c_chatForum/chatforum.html'
 
 	     })
+/********************* Forum Related***************************/
+	     
 	.when('/forum', {
 		controller : 'ForumController',
 		templateUrl : 'c_forum/forum.html'
 
-	}).when('/event', {
+	})
+	
+	.when('/forumlist', {
+                controller: 'ForumController',
+                controller: 'ForumMemberController',
+                controller: 'ForumCommentController',
+                controller: 'ForumLikeController',
+                templateUrl: 'c_forum/Forumlist.html'
+            })
+	
+/********************* Event Related***************************/
+	
+	.when('/event', {
 		controller : 'EventController',
 		templateUrl : 'c_event/event.html'
 
